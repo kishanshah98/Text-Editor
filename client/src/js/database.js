@@ -12,21 +12,21 @@ const initdb = async () =>
     },
   });
 
-// TODO: Add logic to a method that accepts some content and adds it to the database
-
+// Adds logic to a method that accepts some content and adds it to the database
+// Do i need id?
 export const putDb = async (id, content) => {
   console.log('PUT to the database');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: id, todo: content });
+  const request = store.put({ id: id, jate: content });
   const result = await request;
   console.error('putDb not implemented');
-  console.log('🚀 - data saved to the database', result);
+  console.log('Data saved to the database', result);
 };
 
-// TODO: Add logic for a method that gets all the content from the database
-
+// Adds logic for a method that gets all the content from the database
+//Do i need return result
 export const getDb = async () => {
   console.log('GET all from the database');
   const jateDb = await openDB('jate', 1);
