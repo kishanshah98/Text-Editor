@@ -13,20 +13,18 @@ const initdb = async () =>
   });
 
 // Adds logic to a method that accepts some content and adds it to the database
-// Do i need id?
-export const putDb = async (id, content) => {
+export const putDb = async (content) => {
   console.log('PUT to the database');
   const jateDb = await openDB('jate', 1);
   const tx = jateDb.transaction('jate', 'readwrite');
   const store = tx.objectStore('jate');
-  const request = store.put({ id: id, jate: content });
+  const request = store.put({ jate: content });
   const result = await request;
   console.error('putDb not implemented');
   console.log('Data saved to the database', result);
 };
 
 // Adds logic for a method that gets all the content from the database
-//Do i need return result
 export const getDb = async () => {
   console.log('GET all from the database');
   const jateDb = await openDB('jate', 1);
